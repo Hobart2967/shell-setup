@@ -16,5 +16,5 @@ if [[ ! -z "$ZSH" ]]; then
   # Config #
   ##########
   ZSH_THEME=agnoster-ex
-  DEFAULT_USER="marco"
+  DEFAULT_USER=$(whoami)
 fi
