@@ -1,0 +1,1 @@
+alias show-frequency='sudo powermetrics |grep -i "frequency as fraction"'

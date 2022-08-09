@@ -31,6 +31,8 @@ if [[ "$OSTYPE" =~ ^darwin.* ]]; then
   printf " "
   printf "MacOS Extensions..."
   source $PERSONAL_SHELL_SETUP_PATH/macos/flushdns.sh
+  source $PERSONAL_SHELL_SETUP_PATH/macos/show-frequency.sh
+  source $PERSONAL_SHELL_SETUP_PATH/macos/show-temperature.sh
 fi
 
 
