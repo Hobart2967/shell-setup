@@ -49,6 +49,10 @@ echo "${COLORS_BLUE}Node>${COLORS_RESET} nvm\t\t\t\t\tNode version manager."
 echo "${COLORS_BLUE}Node>${COLORS_RESET} lerna-add <...args>\t\t\tAdd the requested packages to the lerna package residing in the current folder."
 echo "${COLORS_BLUE}Node>${COLORS_RESET} lerna-remove <...args>\t\t\tRemove the requested packages from the lerna package residing in the current folder."
 echo "${COLORS_BLUE}Node>${COLORS_RESET} lerna-exec <...args>\t\t\tExecute the command for the lerna package residing in the current folder."
+if [[ "$OSTYPE" =~ ^darwin.* ]]; then
 echo "____"
 echo "${COLORS_BLUE}MacOS>${COLORS_RESET} flushdns\t\t\t\t\tClears DNS cache in mDNS."
+echo "${COLORS_BLUE}MacOS>${COLORS_RESET} show-frequency\t\t\t\t\tShows current CPU and GPU clock"
+echo "${COLORS_BLUE}MacOS>${COLORS_RESET} show-\t\t\t\t\tShows current CPU and GPU temperature."
+fi
 echo ""
