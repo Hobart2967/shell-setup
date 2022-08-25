@@ -17,4 +17,5 @@ if [[ ! -z "$ZSH" ]]; then
   ##########
   ZSH_THEME=agnoster-ex
   DEFAULT_USER="marco"
+  plugins=(git history docker-compose docker gh colorize)
 fi

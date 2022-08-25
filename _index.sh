@@ -32,3 +32,5 @@ source $PERSONAL_SHELL_SETUP_PATH/yarn.sh
 printf " "
 printf "Lerna utilities..."
 source $PERSONAL_SHELL_SETUP_PATH/lerna.sh
+
+echo "$COLORS_RESET"
