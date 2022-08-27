@@ -28,6 +28,10 @@ source $PERSONAL_SHELL_SETUP_PATH/node/nvm.sh
 source $PERSONAL_SHELL_SETUP_PATH/node/yarn.sh
 source $PERSONAL_SHELL_SETUP_PATH/node/lerna.sh
 
+if grep -qi microsoft /proc/version; then
+  source $PERSONAL_SHELL_SETUP_PATH/wsl/xdg-open-fix.sh
+fi
+
 if [[ "$OSTYPE" =~ ^darwin.* ]]; then
   printf " "
   printf "MacOS Extensions..."
@@ -57,3 +61,5 @@ echo "${COLORS_BLUE}MacOS>${COLORS_RESET} show-frequency\t\t\t\t\tShows current 
 echo "${COLORS_BLUE}MacOS>${COLORS_RESET} show-\t\t\t\t\tShows current CPU and GPU temperature."
 fi
 echo ""
+
+source $PERSONAL_SHELL_SETUP_PATH/system.sh
