@@ -22,6 +22,7 @@ source $PERSONAL_SHELL_SETUP_PATH/git/giti.sh
 source $PERSONAL_SHELL_SETUP_PATH/git/git_branch.sh
 source $PERSONAL_SHELL_SETUP_PATH/git/gh.sh
 printf " "
+echo "$COLORS_RESET"
 printf "Node Development Extensions..."
 source $PERSONAL_SHELL_SETUP_PATH/node/nvm.sh
 source $PERSONAL_SHELL_SETUP_PATH/node/yarn.sh
@@ -36,12 +37,20 @@ source $PERSONAL_SHELL_SETUP_PATH/tools/wake-on-lan.sh
 printf "pipx Extensions..."
 source $PERSONAL_SHELL_SETUP_PATH/pipx/pipx-path-helper.sh
 
+if grep -qi microsoft /proc/version; then
+  source $PERSONAL_SHELL_SETUP_PATH/wsl/xdg-open-fix.sh
+fi
+
 if [[ "$OSTYPE" =~ ^darwin.* ]]; then
   printf " "
   printf "MacOS Extensions..."
   source $PERSONAL_SHELL_SETUP_PATH/macos/flushdns.sh
   source $PERSONAL_SHELL_SETUP_PATH/macos/show-frequency.sh
   source $PERSONAL_SHELL_SETUP_PATH/macos/show-temperature.sh
+
+  if [ -x /usr/libexec/path_helper ]; then
+    eval `/usr/libexec/path_helper -s`
+  fi
 fi
 
 
@@ -66,7 +75,4 @@ echo "${COLORS_BLUE}MacOS>${COLORS_RESET} show-temperature\t\t\t\t\tShows curren
 fi
 echo ""
 
-## TODO: Temp HelpDesk
-if [ -x /usr/libexec/path_helper ]; then
-    eval `/usr/libexec/path_helper -s`
-fi
+source $PERSONAL_SHELL_SETUP_PATH/system.sh
