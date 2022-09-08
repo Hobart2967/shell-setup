@@ -27,6 +27,15 @@ source $PERSONAL_SHELL_SETUP_PATH/node/nvm.sh
 source $PERSONAL_SHELL_SETUP_PATH/node/yarn.sh
 source $PERSONAL_SHELL_SETUP_PATH/node/lerna.sh
 
+printf "Asdf Extensions..."
+source $PERSONAL_SHELL_SETUP_PATH/asdf/asdf-bootstrap.sh
+
+printf "Tools Extensions..."
+source $PERSONAL_SHELL_SETUP_PATH/tools/wake-on-lan.sh
+
+printf "pipx Extensions..."
+source $PERSONAL_SHELL_SETUP_PATH/pipx/pipx-path-helper.sh
+
 if [[ "$OSTYPE" =~ ^darwin.* ]]; then
   printf " "
   printf "MacOS Extensions..."
@@ -53,6 +62,11 @@ if [[ "$OSTYPE" =~ ^darwin.* ]]; then
 echo "____"
 echo "${COLORS_BLUE}MacOS>${COLORS_RESET} flushdns\t\t\t\t\tClears DNS cache in mDNS."
 echo "${COLORS_BLUE}MacOS>${COLORS_RESET} show-frequency\t\t\t\t\tShows current CPU and GPU clock"
-echo "${COLORS_BLUE}MacOS>${COLORS_RESET} show-\t\t\t\t\tShows current CPU and GPU temperature."
+echo "${COLORS_BLUE}MacOS>${COLORS_RESET} show-temperature\t\t\t\t\tShows current CPU and GPU temperature."
 fi
 echo ""
+
+## TODO: Temp HelpDesk
+if [ -x /usr/libexec/path_helper ]; then
+    eval `/usr/libexec/path_helper -s`
+fi
