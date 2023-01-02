@@ -9,3 +9,8 @@ gh-pr() {
 gh-release() {
   gh release create $1 -t "$1" -n "$1"
 }
+
+gh-delease() {
+  gh release delete $1
+  git push --delete origin $1
+}
