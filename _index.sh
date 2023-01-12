@@ -20,6 +20,9 @@ printf " "
 printf "Git Extensions..."
 source $PERSONAL_SHELL_SETUP_PATH/git/giti.sh
 source $PERSONAL_SHELL_SETUP_PATH/git/git_branch.sh
+source $PERSONAL_SHELL_SETUP_PATH/git/push-branch.sh
+source $PERSONAL_SHELL_SETUP_PATH/git/create-patch.sh
+source $PERSONAL_SHELL_SETUP_PATH/git/apply-patch.sh
 source $PERSONAL_SHELL_SETUP_PATH/git/gh.sh
 printf " "
 echo "$COLORS_RESET"
@@ -53,25 +56,27 @@ if [[ "$OSTYPE" =~ ^darwin.* ]]; then
   fi
 fi
 
-
 echo ""
 echo ""
 echo "${COLORS_GREEN}Available extension commands:${COLORS_RESET}"
-echo "${COLORS_BLUE}Git>${COLORS_RESET} git-branch\t\t\t\t\tPrints the currently checked out repository branch in the current working directory."
-echo "${COLORS_BLUE}Git>${COLORS_RESET} giti <pattern>\t\t\t\tAdd the given pattern to a .gitignore file in the current working directory."
+echo "${COLORS_BLUE}Git>${COLORS_RESET} ${COLORS_YELLOW}git-branch${COLORS_RESET}\t\t\t\t\tPrints the currently checked out repository branch in the current working directory."
+echo "${COLORS_BLUE}Git>${COLORS_RESET} ${COLORS_YELLOW}giti${COLORS_RESET} <pattern>\t\t\t\tAdd the given pattern to a .gitignore file in the current working directory."
 echo "\t\t\t\t\t\tCreates the file if not existing, yet."
-echo "${COLORS_BLUE}Git>${COLORS_RESET} gh-pr <reviewer> <branch>\t\t\tCreate Pull-Request for <reviewer> and target <branch>"
-echo "${COLORS_BLUE}Git>${COLORS_RESET} gh-release <version>\t\t\tCreate a new Release with the specified <version> number as tag label"
+echo "${COLORS_BLUE}Git>${COLORS_RESET} ${COLORS_YELLOW}gh-pr${COLORS_RESET} <reviewer> <branch>\t\t\tCreate Pull-Request for <reviewer> and target <branch>"
+echo "${COLORS_BLUE}Git>${COLORS_RESET} ${COLORS_YELLOW}gh-release${COLORS_RESET} <version>\t\t\tCreate a new Release with the specified <version> number as tag label"
+echo "${COLORS_BLUE}Git>${COLORS_RESET} ${COLORS_YELLOW}push-branch${COLORS_RESET} \t\t\t\tPushes the current branch to origin. Creates branch at origin if not existing"
+echo "${COLORS_BLUE}Git>${COLORS_RESET} ${COLORS_YELLOW}create-patch${COLORS_RESET}\t\t\t\tCreates a patch from the last commit."
+echo "${COLORS_BLUE}Git>${COLORS_RESET} ${COLORS_YELLOW}apply-patch${COLORS_RESET} <patchFile>\t\t\tApplies the given patchfile to the current repository."
 echo "____"
-echo "${COLORS_BLUE}Node>${COLORS_RESET} nvm\t\t\t\t\tNode version manager."
-echo "${COLORS_BLUE}Node>${COLORS_RESET} lerna-add <...args>\t\t\tAdd the requested packages to the lerna package residing in the current folder."
-echo "${COLORS_BLUE}Node>${COLORS_RESET} lerna-remove <...args>\t\t\tRemove the requested packages from the lerna package residing in the current folder."
-echo "${COLORS_BLUE}Node>${COLORS_RESET} lerna-exec <...args>\t\t\tExecute the command for the lerna package residing in the current folder."
+echo "${COLORS_BLUE}Node>${COLORS_RESET} ${COLORS_YELLOW}nvm${COLORS_RESET}\t\t\t\t\tNode version manager."
+echo "${COLORS_BLUE}Node>${COLORS_RESET} ${COLORS_YELLOW}lerna-add${COLORS_RESET} <...args>\t\t\tAdd the requested packages to the lerna package residing in the current folder."
+echo "${COLORS_BLUE}Node>${COLORS_RESET} ${COLORS_YELLOW}lerna-remove${COLORS_RESET} <...args>\t\t\tRemove the requested packages from the lerna package residing in the current folder."
+echo "${COLORS_BLUE}Node>${COLORS_RESET} ${COLORS_YELLOW}lerna-exec${COLORS_RESET} <...args>\t\t\tExecute the command for the lerna package residing in the current folder."
 if [[ "$OSTYPE" =~ ^darwin.* ]]; then
 echo "____"
-echo "${COLORS_BLUE}MacOS>${COLORS_RESET} flushdns\t\t\t\t\tClears DNS cache in mDNS."
-echo "${COLORS_BLUE}MacOS>${COLORS_RESET} show-frequency\t\t\t\t\tShows current CPU and GPU clock"
-echo "${COLORS_BLUE}MacOS>${COLORS_RESET} show-temperature\t\t\t\t\tShows current CPU and GPU temperature."
+echo "${COLORS_BLUE}MacOS>${COLORS_RESET} ${COLORS_YELLOW}flushdns${COLORS_RESET}\t\t\t\t\tClears DNS cache in mDNS."
+echo "${COLORS_BLUE}MacOS>${COLORS_RESET} ${COLORS_YELLOW}show-frequency${COLORS_RESET}\t\t\t\t\tShows current CPU and GPU clock"
+echo "${COLORS_BLUE}MacOS>${COLORS_RESET} ${COLORS_YELLOW}show-temperature${COLORS_RESET}\t\t\t\t\tShows current CPU and GPU temperature."
 fi
 echo ""
 
