@@ -40,8 +40,10 @@ source $PERSONAL_SHELL_SETUP_PATH/tools/wake-on-lan.sh
 printf "pipx Extensions..."
 source $PERSONAL_SHELL_SETUP_PATH/pipx/pipx-path-helper.sh
 
-if grep -qi microsoft /proc/version; then
-  source $PERSONAL_SHELL_SETUP_PATH/wsl/xdg-open-fix.sh
+if [[ "$OSTYPE" == "win32" ]]; then
+  if grep -qi microsoft /proc/version; then
+    source $PERSONAL_SHELL_SETUP_PATH/wsl/xdg-open-fix.sh
+  fi
 fi
 
 if [[ "$OSTYPE" =~ ^darwin.* ]]; then
