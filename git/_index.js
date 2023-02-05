@@ -1,7 +1,15 @@
 const fs = require('fs');
 const path = require('path');
+const os = require('os');
 
-const targetPath = path.join(process.cwd(), process.argv[2]);
+let target = process.argv[2]
+if (!target) {
+  target = path.relative(process.cwd(), os.homedir());
+  console.log(target)
+
+}
+
+const targetPath = path.join(process.cwd(), target);
 if (!fs.existsSync(path.join(targetPath, '.git'))) {
   process.exit(1);
 }
