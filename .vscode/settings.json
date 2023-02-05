@@ -2,6 +2,7 @@
   "conventionalCommits.scopes": [
     "git",
     "iterm2",
-    "macos-keyboard"
+    "macos-keyboard",
+    "git"
   ]
 }

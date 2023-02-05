@@ -10,8 +10,8 @@ else
     [ -s "$NVM_DIR/etc/bash_completion.d/nvm" ] && . "$NVM_DIR/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 fi
 
-if ! command -v nvm &> /dev/null
-then
+binPath=$(command -v nvm)
+if [ -z "$binPath" ]; then
     printf "\t$COLORS_BLUE =>$COLORS_GREEN Node Version Manager (NVM)$COLORS_BLUE was not installed yet.$COLORS_GREEN Install it?$COLORS_BLUE (y[es]/n[o]) [Default: n]$COLORS_RESET "
     read yn
     if [[ "$yn" == "y" ]]; then
@@ -111,7 +111,7 @@ cdnvm(){
     fi
 }
 
-#if command -v nvm &> /dev/null
-#then
+binPath=$(command -v nvm)
+if [ ! -z "$binPath" ]; then
     alias cd='cdnvm'
-#fi
+fi

@@ -1,7 +1,7 @@
-if ! command -v yarn &> /dev/null
-then
-    if command -v npm &> /dev/null
-    then
+binPath=$(command -v yarn)
+if [ -z "$binPath" ]; then
+    binPath=$(command -v npm)
+    if [ ! -z "$binPath" ]; then
         printf "\t$COLORS_BLUE =>$COLORS_GREEN Yarn$COLORS_BLUE was not installed yet.$COLORS_GREEN Install it$COLORS_BLUE using npm? (y[es]/n[o]) [Default: n]$COLORS_RESET "
         read yn
         if [[ "$yn" == "y" ]]; then
@@ -14,7 +14,7 @@ then
     fi
 fi
 
-if command -v yarn &> /dev/null
-then
+binPath=$(command -v yarn)
+if [ ! -z "$binPath" ]; then
     export PATH="$PATH:$(yarn global bin)"
 fi

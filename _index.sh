@@ -7,6 +7,7 @@
 ##      export PERSONAL_SHELL_SETUP_PATH=<path-to-this-dir>   ##
 ##      . source $PERSONAL_SHELL_SETUP_PATH/_index.sh         ##
 ################################################################
+alias boot=echo ""
 
 source $PERSONAL_SHELL_SETUP_PATH/utilities/_colors.sh
 source $PERSONAL_SHELL_SETUP_PATH/utilities/greet.sh
@@ -17,14 +18,13 @@ printf " "
 
 printf "Tooling..."
 source $PERSONAL_SHELL_SETUP_PATH/utilities/_tooling.sh
-source $PERSONAL_SHELL_SETUP_PATH/utilities/_tooling.sh
 printf " "
 
 printf "AWS Tooling..."
 source $PERSONAL_SHELL_SETUP_PATH/aws-tools/awsume.sh
 
 printf "Git Extensions..."
-source $PERSONAL_SHELL_SETUP_PATH/git/giti.sh
+source $PERSONAL_SHELL_SETUP_PATH/git/_index.sh
 source $PERSONAL_SHELL_SETUP_PATH/git/git_branch.sh
 source $PERSONAL_SHELL_SETUP_PATH/git/push-branch.sh
 source $PERSONAL_SHELL_SETUP_PATH/git/create-patch.sh
@@ -94,3 +94,5 @@ fi
 echo ""
 
 source $PERSONAL_SHELL_SETUP_PATH/system.sh
+
+boot
