@@ -58,6 +58,7 @@ CLEANED_OSTYPE="${OSTYPE:0:6}"
 if [[ "$CLEANED_OSTYPE" == "darwin" ]]; then
   printf " "
   printf "MacOS Extensions..."
+  source $PERSONAL_SHELL_SETUP_PATH/macos/_init.sh
   source $PERSONAL_SHELL_SETUP_PATH/macos/flushdns.sh
   source $PERSONAL_SHELL_SETUP_PATH/macos/show-frequency.sh
   source $PERSONAL_SHELL_SETUP_PATH/macos/show-temperature.sh
@@ -86,8 +87,9 @@ echo "${COLORS_BLUE}Node>${COLORS_RESET} ${COLORS_YELLOW}lerna-exec${COLORS_RESE
 if [[ "$CLEANED_OSTYPE" == "darwin" ]]; then
 echo "____"
 echo "${COLORS_BLUE}MacOS>${COLORS_RESET} ${COLORS_YELLOW}flushdns${COLORS_RESET}\t\t\t\t\tClears DNS cache in mDNS."
-echo "${COLORS_BLUE}MacOS>${COLORS_RESET} ${COLORS_YELLOW}show-frequency${COLORS_RESET}\t\t\t\t\tShows current CPU and GPU clock"
-echo "${COLORS_BLUE}MacOS>${COLORS_RESET} ${COLORS_YELLOW}show-temperature${COLORS_RESET}\t\t\t\t\tShows current CPU and GPU temperature."
+echo "${COLORS_BLUE}MacOS>${COLORS_RESET} ${COLORS_YELLOW}install-pc-keyboard${COLORS_RESET}\t\t\tInstalls Windows (PC) Keyboard layouts for MacOS."
+echo "${COLORS_BLUE}MacOS>${COLORS_RESET} ${COLORS_YELLOW}show-frequency${COLORS_RESET}\t\t\t\tShows current CPU and GPU clock"
+echo "${COLORS_BLUE}MacOS>${COLORS_RESET} ${COLORS_YELLOW}show-temperature${COLORS_RESET}\t\t\t\tShows current CPU and GPU temperature."
 fi
 echo ""
 
