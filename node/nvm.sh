@@ -17,7 +17,7 @@ then
     if [[ "$yn" == "y" ]]; then
         echo "\t$COLORS_GREEN Okay! Will start the installation process now ;)$COLORS_RESET"
 	    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
-        if [[ "$OSTYPE" =~ ^darwin.* ]]; then
+        if [[ "$CLEANED_OSTYPE" == "darwin" ]]; then
             [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
             [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
         else

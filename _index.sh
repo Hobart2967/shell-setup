@@ -14,9 +14,15 @@ source $PERSONAL_SHELL_SETUP_PATH/utilities/greet.sh
 printf "\t Zsh..."
 source $PERSONAL_SHELL_SETUP_PATH/shells/zsh.sh
 printf " "
+
 printf "Tooling..."
 source $PERSONAL_SHELL_SETUP_PATH/utilities/_tooling.sh
+source $PERSONAL_SHELL_SETUP_PATH/utilities/_tooling.sh
 printf " "
+
+printf "AWS Tooling..."
+source $PERSONAL_SHELL_SETUP_PATH/aws-tools/awsume.sh
+
 printf "Git Extensions..."
 source $PERSONAL_SHELL_SETUP_PATH/git/giti.sh
 source $PERSONAL_SHELL_SETUP_PATH/git/git_branch.sh
@@ -26,6 +32,7 @@ source $PERSONAL_SHELL_SETUP_PATH/git/apply-patch.sh
 source $PERSONAL_SHELL_SETUP_PATH/git/gh.sh
 printf " "
 echo "$COLORS_RESET"
+
 printf "Node Development Extensions..."
 source $PERSONAL_SHELL_SETUP_PATH/node/nvm.sh
 source $PERSONAL_SHELL_SETUP_PATH/node/yarn.sh
@@ -46,7 +53,9 @@ if [[ "$OSTYPE" == "win32" ]]; then
   fi
 fi
 
-if [[ "$OSTYPE" =~ ^darwin.* ]]; then
+CLEANED_OSTYPE="${OSTYPE:0:6}"
+
+if [[ "$CLEANED_OSTYPE" == "darwin" ]]; then
   printf " "
   printf "MacOS Extensions..."
   source $PERSONAL_SHELL_SETUP_PATH/macos/flushdns.sh
@@ -74,7 +83,7 @@ echo "${COLORS_BLUE}Node>${COLORS_RESET} ${COLORS_YELLOW}nvm${COLORS_RESET}\t\t\
 echo "${COLORS_BLUE}Node>${COLORS_RESET} ${COLORS_YELLOW}lerna-add${COLORS_RESET} <...args>\t\t\tAdd the requested packages to the lerna package residing in the current folder."
 echo "${COLORS_BLUE}Node>${COLORS_RESET} ${COLORS_YELLOW}lerna-remove${COLORS_RESET} <...args>\t\t\tRemove the requested packages from the lerna package residing in the current folder."
 echo "${COLORS_BLUE}Node>${COLORS_RESET} ${COLORS_YELLOW}lerna-exec${COLORS_RESET} <...args>\t\t\tExecute the command for the lerna package residing in the current folder."
-if [[ "$OSTYPE" =~ ^darwin.* ]]; then
+if [[ "$CLEANED_OSTYPE" == "darwin" ]]; then
 echo "____"
 echo "${COLORS_BLUE}MacOS>${COLORS_RESET} ${COLORS_YELLOW}flushdns${COLORS_RESET}\t\t\t\t\tClears DNS cache in mDNS."
 echo "${COLORS_BLUE}MacOS>${COLORS_RESET} ${COLORS_YELLOW}show-frequency${COLORS_RESET}\t\t\t\t\tShows current CPU and GPU clock"

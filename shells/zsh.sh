@@ -21,6 +21,14 @@ if [[ ! -z "$ZSH" ]]; then
     git clone https://github.com/zsh-users/zsh-autosuggestions.git $ZSH_AUTOSUGGEST_DIR
   fi
 
+  ###############
+  # AWSume #
+  ###############
+  ZSH_AWSUME_DIR="$ZSH_DIR/custom/plugins/awsume"
+  if [ ! -d "$ZSH_AWSUME_DIR" ]; then
+    git clone https://github.com/Sordie/AWSume.git $ZSH_AWSUME_DIR
+  fi
+
   ####################
   # Syntax Highlight #
   ####################
@@ -36,3 +44,4 @@ if [[ ! -z "$ZSH" ]]; then
   DEFAULT_USER=$(whoami)
   plugins=(aws git history docker-compose docker gh awsume zsh-autosuggestions zsh-syntax-highlighting)
 fi
+
