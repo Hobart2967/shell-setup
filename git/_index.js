@@ -2,11 +2,10 @@ const fs = require('fs');
 const path = require('path');
 const os = require('os');
 
-let target = process.argv[2]
+let target = process.argv[2];
 if (!target) {
   target = path.relative(process.cwd(), os.homedir());
-  console.log(target)
-
+  console.log(target);
 }
 
 const targetPath = path.join(process.cwd(), target);
