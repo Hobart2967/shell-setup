@@ -9,6 +9,18 @@ function checkrepo() {
   cd_old $*
 }
 
+function git-memory() {
+  if [ ! -z "$nodePath" ]; then
+    node $PERSONAL_SHELL_SETUP_PATH/git/_memory.js $1
+  fi
+}
+
+function git-all() {
+  if [ ! -z "$nodePath" ]; then
+    node $PERSONAL_SHELL_SETUP_PATH/git/_all.js $*
+  fi
+}
+
 alias cd=checkrepo
 checkrepo $(pwd)
 

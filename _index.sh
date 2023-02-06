@@ -79,6 +79,8 @@ echo "${COLORS_BLUE}Git>${COLORS_RESET} ${COLORS_YELLOW}gh-release${COLORS_RESET
 echo "${COLORS_BLUE}Git>${COLORS_RESET} ${COLORS_YELLOW}push-branch${COLORS_RESET} \t\t\t\tPushes the current branch to origin. Creates branch at origin if not existing"
 echo "${COLORS_BLUE}Git>${COLORS_RESET} ${COLORS_YELLOW}create-patch${COLORS_RESET}\t\t\t\tCreates a patch from the last commit."
 echo "${COLORS_BLUE}Git>${COLORS_RESET} ${COLORS_YELLOW}apply-patch${COLORS_RESET} <patchFile>\t\t\tApplies the given patchfile to the current repository."
+echo "${COLORS_BLUE}Git>${COLORS_RESET} ${COLORS_YELLOW}git-memory${COLORS_RESET} <days=3>\t\t\tShows commits throughout all repositories for x days."
+echo "${COLORS_BLUE}Git>${COLORS_RESET} ${COLORS_YELLOW}git-all${COLORS_RESET} <days=3>\t\t\tRun git command for all repositories."
 echo "____"
 echo "${COLORS_BLUE}Node>${COLORS_RESET} ${COLORS_YELLOW}nvm${COLORS_RESET}\t\t\t\t\tNode version manager."
 echo "${COLORS_BLUE}Node>${COLORS_RESET} ${COLORS_YELLOW}lerna-add${COLORS_RESET} <...args>\t\t\tAdd the requested packages to the lerna package residing in the current folder."
