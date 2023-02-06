@@ -18,6 +18,7 @@ if (!fs.existsSync(configPath)) {
       cwd: repo,
       stdio: [0,1,2]
     }).catch(err => ({
+      stdout: '',
       stderr: `\x1b[31m${err.toString()}\x1b[0m`
     }));
 
