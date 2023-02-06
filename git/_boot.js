@@ -15,10 +15,10 @@ if (!fs.existsSync(configPath)) {
       Promise.all([
         exec('git log --branches --not --remotes', {
           cwd: repo
-        }),
+        }).catch(() => ({ stdout: '', stderr: '' })),
         exec('git status --porcelain', {
           cwd: repo
-        }),
+        }).catch(() => ({ stdout: '', stderr: '' })),
       ]).then(results => ({
         repo,
         results

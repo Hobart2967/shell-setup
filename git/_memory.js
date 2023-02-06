@@ -47,7 +47,10 @@ async function downloadGemojiList() {
     .map(repo =>
       exec(`git log --since="${since.toISOString()}" --branches --abbrev-commit --pretty="format:%ci\t%B"`, {
         cwd: repo
-      }).then(result => ({ repo, result }))));
+      })
+      .then(result => ({ repo, result }))
+      .catch(() => ({ repo, result: { stdout: '' } }))
+    ));
 
 
   const output = results.filter(x => x.result.stdout.trim().length);
