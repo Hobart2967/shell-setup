@@ -17,9 +17,9 @@ if (!fs.existsSync(configPath)) {
     const result = await exec(`git ${process.argv.slice(2).join(' ')}`, {
       cwd: repo,
       stdio: [0,1,2]
-    }).catch(err => {
+    }).catch(err => ({
       stderr: `\x1b[31m${err.toString()}\x1b[0m`
-    });
+    }));
 
     if (result.stdout.trim()) {
       console.log(result.stdout.trim());
