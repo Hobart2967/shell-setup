@@ -9,7 +9,7 @@ if [[ ! -z "$ZSH" ]]; then
     rm -rf ~/source/github.com/Hobart2967/agnoster-ex
     mkdir -p ~/source/github.com/Hobart2967/agnoster-ex
     git clone git@github.com:Hobart2967/agnoster-ex  ~/source/github.com/Hobart2967/agnoster-ex
-    cp ~/source/github.com/Hobart2967/agnoster-ex/agnoster-ex.zsh-theme "$ZSH/custom/themes/agnoster-ex.zsh-theme"
+    ln -s ~/source/github.com/Hobart2967/agnoster-ex/agnoster-ex.zsh-theme "$ZSH/custom/themes/agnoster-ex.zsh-theme"
   fi
 
 
@@ -40,7 +40,9 @@ if [[ ! -z "$ZSH" ]]; then
   ##########
   # Config #
   ##########
+
   ZSH_THEME=agnoster-ex
+
   DEFAULT_USER=$(whoami)
   plugins=(aws git history docker-compose docker gh awsume zsh-autosuggestions zsh-syntax-highlighting)
 fi
