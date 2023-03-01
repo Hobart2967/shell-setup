@@ -32,5 +32,7 @@ if (!fs.existsSync(configPath)) {
   if (unpushed.length) {
     console.log(`\x1b[31mYou have non-pushed or non-committed changes in the following repositories: ${JSON.stringify(unpushed, null, 2)}.`)
     console.log(`\n📙📙📙 Check for details using:\n\n\t- git log --branches --not --remotes\n\t- git status\x1b[0m`);
+  } else {
+    console.log(`\x1b[32m✅ No Repositories have active changes or commits. Nice!\x1b[0m`)
   }
 })();
