@@ -24,12 +24,15 @@ function git-all() {
 alias cd=checkrepo
 checkrepo $(pwd)
 
-alias old_boot=boot
-function gitBoot() {
+function git-check() {
   if [ ! -z "$nodePath" ]; then
     node $PERSONAL_SHELL_SETUP_PATH/git/_boot.js
   fi
+}
 
+alias old_boot=boot
+function gitBoot() {
+  git-check
   old_boot
 }
 alias boot=gitBoot
