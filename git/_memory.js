@@ -5,9 +5,9 @@ const https = require('https');
 const exec = promisify(require('child_process').exec)
 
 if(process.argv[2] === '--help') {
-  console.log('\nUsage: git-memory <timeSpanInDays> [--all]\n');
-  console.log('  timeSpanInDays \tValue from 0 to Infinity, given the days that should be inspected.');
-  console.log('  --all \t\tIf set, commits are **NOT** filtered by only yours.');
+  console.log('\nUsage: git-memory [timeSpanInDays] [--all]\n');
+  console.log('  timeSpanInDays \tValue from 0 to Infinity, number of days that should be inspected. Default: 3');
+  console.log('  --all \t\tIf set, commits are **NOT** filtered by only yours. Default: false');
   process.exit(1);
 }
 
