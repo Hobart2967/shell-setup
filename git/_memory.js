@@ -4,6 +4,13 @@ const path = require('path');
 const https = require('https');
 const exec = promisify(require('child_process').exec)
 
+if(process.argv[2] === '--help') {
+  console.log('\nUsage: git-memory <timeSpanInDays> [--all]\n');
+  console.log('  timeSpanInDays \tValue from 0 to Infinity, given the days that should be inspected.');
+  console.log('  --all \t\tIf set, commits are **NOT** filtered by only yours.');
+  process.exit(1);
+}
+
 const configPath = path.join(__dirname, 'git-repos.json');
 if (!fs.existsSync(configPath)) {
   process.exit(1);
@@ -33,8 +40,9 @@ async function downloadGemojiList() {
 }
 
 (async function() {
-  const tiemSpanInDays = process.argv[2]
-    ? parseInt(process.argv[2])
+  const timeSpanParam = process.argv[2] !== '--all' ? process.argv[2] : null;
+  const tiemSpanInDays = timeSpanParam
+    ? parseInt(timeSpanParam)
     : 3;
   const since = new Date(new Date(Date.now()).getTime() - tiemSpanInDays * 24 * 60 * 60 * 1000);
   since.setHours(0);
@@ -42,10 +50,17 @@ async function downloadGemojiList() {
   since.setSeconds(0);
   since.setMilliseconds(0);
 
+
+  let additionalArgs = '';
+  if (!process.argv.includes('--all')) {
+    const username = await
+      exec(`git config user.name`);
+    additionalArgs = `--author="${username.stdout.trim()}"`;
+  }
   const repos = JSON.parse(fs.readFileSync(configPath));
   const results = await Promise.all(repos
     .map(repo =>
-      exec(`git log --since="${since.toISOString()}" --branches --abbrev-commit --pretty="format:%ci\t%B"`, {
+      exec(`git log --since="${since.toISOString()}" --branches --abbrev-commit --pretty="format:%ci\t%B" ${additionalArgs}`, {
         cwd: repo
       })
       .then(result => ({ repo, result }))
