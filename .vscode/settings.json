@@ -6,6 +6,7 @@
     "git",
     "zsh",
     "nvm",
-    "asdf-vm"
+    "asdf-vm",
+    "nvm"
   ]
 }

@@ -7,7 +7,10 @@ if [ ! -d "$HOME/.asdf" ]; then
   fi
 fi
 
-if [ -d "$HOME/.asdf" ]; then
-  #source "/opt/homebrew/opt/asdf/libexec/asdf.sh"
+ASDF_PREFIX=$(brew --prefix asdf 2> /dev/null)
+ASDF_EXISTS=$?
+if [[ "$ASDF_EXISTS" == "0" ]]; then
+  export ASDF_DATA_DIR="$ASDF_PREFIX"
+  source $ASDF_DATA_DIR/libexec/asdf.sh
   . ~/.asdf/plugins/java/set-java-home.zsh
 fi
