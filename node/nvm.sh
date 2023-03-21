@@ -1,8 +1,9 @@
 export NVM_DIR="$HOME/.nvm"
 
 CLEANED_OSTYPE="${OSTYPE:0:6}"
+CLEANED_OSTYPE_LIN="${OSTYPE:0:5}"
 
-if [[ "$CLEANED_OSTYPE" != "darwin" ]]; then
+if [[ "$CLEANED_OSTYPE" != "darwin" && "$CLEANED_OSTYPE_LIN" != "linux" ]]; then
     [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
     [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 else
