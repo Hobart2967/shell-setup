@@ -4,6 +4,7 @@
     "iterm2",
     "macos-keyboard",
     "git",
-    "zsh"
+    "zsh",
+    "asdf-vm"
   ]
 }
