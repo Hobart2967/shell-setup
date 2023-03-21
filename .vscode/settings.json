@@ -5,6 +5,7 @@
     "macos-keyboard",
     "git",
     "zsh",
-    "nvm"
+    "nvm",
+    "asdf-vm"
   ]
 }
