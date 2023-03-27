@@ -5,8 +5,8 @@ if [ "$MACHINE_TYPE" = "work" ]; then
   printf '%s \_   ___ \%s    ____ %s _______%s    ____ %s \__    ___/%s  ____ %s _____  %s   _____ %s \n' $WORK_RAINBOW $RESET
   printf '%s /    \  \/%s   /  _ \%s \_  __ \%s _/ __ \%s   |    |  %s _/ __ \%s \__  \ %s  /     \%s \n' $WORK_RAINBOW $RESET
   printf '%s \     \____%s (  <_> )%s |  | \/%s \  ___/%s   |    |  %s \  ___/%s  / __ \_%s |  Y Y \%s \n' $WORK_RAINBOW $RESET
-  printf '%s  \______  /%s  \____/%s  |__|  %s   \___  >%s  |____|  %s  \__  >%s (____  /%s|__|_| /%s \n' $WORK_RAINBOW $RESET
-  printf '%s         \/%s       %s        %s         \/%s           %s     \/%s       \/%s      \/%s \n' $WORK_RAINBOW $RESET
+  printf '%s  \______  /%s  \____/%s  |__|  %s   \___  >%s  |____|  %s  \__  >%s (____  /%s |__|_| /%s \n' $WORK_RAINBOW $RESET
+  printf '%s         \/%s       %s        %s         \/%s           %s     \/%s       \/%s       \/%s \n' $WORK_RAINBOW $RESET
   printf '\n'
   #printf '%s__________%s.__  %s     %s   __  %s  _____ %s     %s       %s        %s ___________ %s             %s   %s   %s\n' $RAINBOW $RESET
   #printf '%s\\______   \\%s  | %s_____ %s_/  |__%s/ ____\\%s_____%s______ %s _____  %s \\__    ___/%s___ %s_____   %s _____  %s\n' $RAINBOW $RESET
