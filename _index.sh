@@ -23,6 +23,9 @@ printf " "
 printf "AWS Tooling..."
 source $PERSONAL_SHELL_SETUP_PATH/aws-tools/awsume.sh
 
+printf "Python Tooling..."
+source $PERSONAL_SHELL_SETUP_PATH/python/pyenv.sh
+
 printf "Git Extensions..."
 source $PERSONAL_SHELL_SETUP_PATH/git/_index.sh
 source $PERSONAL_SHELL_SETUP_PATH/git/git_branch.sh
