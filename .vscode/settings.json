@@ -9,6 +9,7 @@
     "asdf-vm",
     "nvm",
     "python",
-    "common"
+    "common",
+    "wsl"
   ]
 }

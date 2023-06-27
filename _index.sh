@@ -9,6 +9,9 @@
 ################################################################
 alias boot=echo ""
 
+export MICROSOFT_UNAME=$(uname -a | grep -i microsoft)
+export IS_WSL=$( [ ! -z "$MICROSOFT_UNAME" ] && echo "1" || echo "0" )
+
 source $PERSONAL_SHELL_SETUP_PATH/utilities/_colors.sh
 source $PERSONAL_SHELL_SETUP_PATH/utilities/greet.sh
 
@@ -50,10 +53,8 @@ source $PERSONAL_SHELL_SETUP_PATH/tools/wake-on-lan.sh
 printf "pipx Extensions..."
 source $PERSONAL_SHELL_SETUP_PATH/pipx/pipx-path-helper.sh
 
-if [[ "$OSTYPE" == "win32" ]]; then
-  if grep -qi microsoft /proc/version; then
-    source $PERSONAL_SHELL_SETUP_PATH/wsl/xdg-open-fix.sh
-  fi
+if [[ "$IS_WSL" == "1" ]]; then
+  source $PERSONAL_SHELL_SETUP_PATH/wsl/xdg-open-fix.sh
 fi
 
 CLEANED_OSTYPE="${OSTYPE:0:6}"
