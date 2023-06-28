@@ -31,6 +31,7 @@ source $PERSONAL_SHELL_SETUP_PATH/python/pyenv.sh
 
 printf "Git Extensions..."
 source $PERSONAL_SHELL_SETUP_PATH/git/_index.sh
+source $PERSONAL_SHELL_SETUP_PATH/git/giti.sh
 source $PERSONAL_SHELL_SETUP_PATH/git/git_branch.sh
 source $PERSONAL_SHELL_SETUP_PATH/git/push-branch.sh
 source $PERSONAL_SHELL_SETUP_PATH/git/create-patch.sh
