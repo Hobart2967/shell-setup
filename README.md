@@ -49,3 +49,18 @@ Set-ExecutionPolicy Default
 cd
 Remove-Item -Recurse -Force C:\Temp\
 ```
+
+## Environment file
+
+To make the shell setup load an non-version controlled, create a .env file in your home directory:
+
+```sh
+AN_ENVIRONMENT_VAR=WITH_VALUE
+```
+
+Upon next shell init it will be globally available for your user.
+
+## Install java
+
+asdf plugin add java
+asdf install java corretto-11.0.19.7.1

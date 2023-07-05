@@ -9,6 +9,10 @@
 ################################################################
 alias boot=echo ""
 
+if [ -f "$HOME/.env" ]; then
+  set -o allexport; source $HOME/.env; set +o allexport
+fi
+
 export MICROSOFT_UNAME=$(uname -a | grep -i microsoft)
 export IS_WSL=$( [ ! -z "$MICROSOFT_UNAME" ] && echo "1" || echo "0" )
 
@@ -25,6 +29,7 @@ printf " "
 
 printf "AWS Tooling..."
 source $PERSONAL_SHELL_SETUP_PATH/aws-tools/awsume.sh
+source $PERSONAL_SHELL_SETUP_PATH/aws-tools/sso-creds.sh
 
 printf "Python Tooling..."
 source $PERSONAL_SHELL_SETUP_PATH/python/pyenv.sh
