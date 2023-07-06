@@ -1,13 +1,20 @@
 if [ "$MACHINE_TYPE" = "work" ]; then
-  WORK_RAINBOW=("${RAINBOW[@]:0:8}")
+  WORK_RAINBOW=("${RAINBOW[@]:0:7}")
 
-  printf '%s _________ %s       %s        %s           %s ___________%s        %s        %s         %s \n' $WORK_RAINBOW $RESET
-  printf '%s \_   ___ \%s    ____ %s _______%s    ____ %s \__    ___/%s  ____ %s _____  %s   _____ %s \n' $WORK_RAINBOW $RESET
-  printf '%s /    \  \/%s   /  _ \%s \_  __ \%s _/ __ \%s   |    |  %s _/ __ \%s \__  \ %s  /     \%s \n' $WORK_RAINBOW $RESET
-  printf '%s \     \____%s (  <_> )%s |  | \/%s \  ___/%s   |    |  %s \  ___/%s  / __ \_%s |  Y Y \%s \n' $WORK_RAINBOW $RESET
-  printf '%s  \______  /%s  \____/%s  |__|  %s   \___  >%s  |____|  %s  \__  >%s (____  /%s |__|_| /%s \n' $WORK_RAINBOW $RESET
-  printf '%s         \/%s       %s        %s         \/%s           %s     \/%s       \/%s       \/%s \n' $WORK_RAINBOW $RESET
+  printf '%s  __________        %s__  %s           %s    %s__    %s    %s \n' $WORK_RAINBOW $RAINBOW_RESET
+  printf '%s  \______   \ %s____ %s|  | %s  ____  %s ____ |%s__|%s ____  %s \n' $WORK_RAINBOW $RAINBOW_RESET
+  printf '%s   |    |  _/%s/ __ \%s|  |  %s/  _ \ %s/    \%s|  |%s/  _ \  %s \n' $WORK_RAINBOW $RAINBOW_RESET
+  printf '%s   |    |   \%s  ___/%s|  |_%s(  <_> )%s   |  \%s  %s(  <_> ) %s \n' $WORK_RAINBOW $RAINBOW_RESET
+  printf '%s   |______  /%s\___  >%s____/%s\____/%s|___|  /%s__|%s\____/  %s \n' $WORK_RAINBOW $RAINBOW_RESET
+  printf '%s          \/%s     \/ %s     %s     %s      \/%s   %s        %s \n' $WORK_RAINBOW $RAINBOW_RESET
   printf '\n'
+  #printf '%s _________ %s       %s        %s           %s ___________%s        %s        %s         %s \n' $WORK_RAINBOW $RESET
+  #printf '%s \_   ___ \%s    ____ %s _______%s    ____ %s \__    ___/%s  ____ %s _____  %s   _____ %s \n' $WORK_RAINBOW $RESET
+  #printf '%s /    \  \/%s   /  _ \%s \_  __ \%s _/ __ \%s   |    |  %s _/ __ \%s \__  \ %s  /     \%s \n' $WORK_RAINBOW $RESET
+  #printf '%s \     \____%s (  <_> )%s |  | \/%s \  ___/%s   |    |  %s \  ___/%s  / __ \_%s |  Y Y \%s \n' $WORK_RAINBOW $RESET
+  #printf '%s  \______  /%s  \____/%s  |__|  %s   \___  >%s  |____|  %s  \__  >%s (____  /%s |__|_| /%s \n' $WORK_RAINBOW $RESET
+  #printf '%s         \/%s       %s        %s         \/%s           %s     \/%s       \/%s       \/%s \n' $WORK_RAINBOW $RESET
+  #printf '\n'
   #printf '%s__________%s.__  %s     %s   __  %s  _____ %s     %s       %s        %s ___________ %s             %s   %s   %s\n' $RAINBOW $RESET
   #printf '%s\\______   \\%s  | %s_____ %s_/  |__%s/ ____\\%s_____%s______ %s _____  %s \\__    ___/%s___ %s_____   %s _____  %s\n' $RAINBOW $RESET
   #printf '%s |     ___/%s  | %s\\__  \\%s\\   __%s\\   __\\%s/  _ \\%s_  __ \\%s/     \\ %s   |    |%s_/ __ \\%s\\__  \\  %s/     \\ %s\n' $RAINBOW $RESET
