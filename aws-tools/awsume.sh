@@ -11,6 +11,6 @@ if [ ! -z "$binPath" ]; then
   }
   complete -F _awsume awsume
 fi
-alias awsume=". awsume --output-profile default"
 
+alias awsume=". awsume --output-profile default"
 alias aws-login="aws-sso-util login --profile $AWS_DEFAULT_ACCOUNT"
