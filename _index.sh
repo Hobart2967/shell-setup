@@ -29,6 +29,8 @@ printf " "
 
 printf "AWS Tooling..."
 source $PERSONAL_SHELL_SETUP_PATH/aws-tools/awsume.sh
+source $PERSONAL_SHELL_SETUP_PATH/aws-tools/allow-ec2-sg-ip.sh
+source $PERSONAL_SHELL_SETUP_PATH/aws-tools/allow-elb-ip.sh
 source $PERSONAL_SHELL_SETUP_PATH/aws-tools/sso-creds.sh
 
 printf "Python Tooling..."
@@ -61,6 +63,10 @@ source $PERSONAL_SHELL_SETUP_PATH/pipx/pipx-path-helper.sh
 
 if [[ "$IS_WSL" == "1" ]]; then
   source $PERSONAL_SHELL_SETUP_PATH/wsl/xdg-open-fix.sh
+fi
+
+if [[ ! -z "$SHELL_SETUP_EXTENSION" ]]; then
+  source $SHELL_SETUP_EXTENSION
 fi
 
 CLEANED_OSTYPE="${OSTYPE:0:6}"

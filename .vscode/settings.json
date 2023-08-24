@@ -11,6 +11,7 @@
     "python",
     "common",
     "wsl",
-    "greet"
+    "greet",
+    "aws"
   ]
 }
