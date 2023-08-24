@@ -32,6 +32,7 @@ source $PERSONAL_SHELL_SETUP_PATH/aws-tools/awsume.sh
 source $PERSONAL_SHELL_SETUP_PATH/aws-tools/allow-ec2-sg-ip.sh
 source $PERSONAL_SHELL_SETUP_PATH/aws-tools/allow-elb-ip.sh
 source $PERSONAL_SHELL_SETUP_PATH/aws-tools/sso-creds.sh
+source $PERSONAL_SHELL_SETUP_PATH/aws-tools/aws-connect-to.sh
 
 printf "Python Tooling..."
 source $PERSONAL_SHELL_SETUP_PATH/python/pyenv.sh

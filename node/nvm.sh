@@ -39,7 +39,6 @@ find-up () {
     while [[ "$path" != "" && ! -e "$path/$1" ]]; do
         path=${path%/*}
     done
-    echo "$path"
 }
 
 alias cdnvm_old=cd
