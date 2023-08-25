@@ -25,6 +25,7 @@ printf " "
 
 printf "Tooling..."
 source $PERSONAL_SHELL_SETUP_PATH/utilities/_tooling.sh
+source $PERSONAL_SHELL_SETUP_PATH/adb/adb-forward.sh
 printf " "
 
 printf "AWS Tooling..."

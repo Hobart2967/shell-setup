@@ -12,6 +12,7 @@
     "common",
     "wsl",
     "greet",
-    "aws"
+    "aws",
+    "adb"
   ]
 }
