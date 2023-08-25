@@ -41,6 +41,7 @@ printf "Git Extensions..."
 source $PERSONAL_SHELL_SETUP_PATH/git/_index.sh
 source $PERSONAL_SHELL_SETUP_PATH/git/giti.sh
 source $PERSONAL_SHELL_SETUP_PATH/git/git_branch.sh
+source $PERSONAL_SHELL_SETUP_PATH/git/git-root.sh
 source $PERSONAL_SHELL_SETUP_PATH/git/push-branch.sh
 source $PERSONAL_SHELL_SETUP_PATH/git/create-patch.sh
 source $PERSONAL_SHELL_SETUP_PATH/git/apply-patch.sh
@@ -52,6 +53,7 @@ printf "Node Development Extensions..."
 source $PERSONAL_SHELL_SETUP_PATH/node/nvm.sh
 source $PERSONAL_SHELL_SETUP_PATH/node/yarn.sh
 source $PERSONAL_SHELL_SETUP_PATH/node/lerna.sh
+source $PERSONAL_SHELL_SETUP_PATH/sls/sls.sh
 
 printf "Asdf Extensions..."
 source $PERSONAL_SHELL_SETUP_PATH/asdf/asdf-bootstrap.sh
