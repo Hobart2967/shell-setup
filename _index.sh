@@ -8,6 +8,11 @@
 ##      . source $PERSONAL_SHELL_SETUP_PATH/_index.sh         ##
 ################################################################
 alias boot=echo ""
+autoload -Uz compinit
+compinit
+
+autoload bashcompinit
+bashcompinit
 
 if [ -f "$HOME/.env" ]; then
   set -o allexport; source $HOME/.env; set +o allexport
