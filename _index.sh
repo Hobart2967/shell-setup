@@ -61,6 +61,7 @@ source $PERSONAL_SHELL_SETUP_PATH/asdf/asdf-bootstrap.sh
 
 printf "Tools Extensions..."
 source $PERSONAL_SHELL_SETUP_PATH/tools/wake-on-lan.sh
+source $PERSONAL_SHELL_SETUP_PATH/tools/one-password.sh
 
 printf "pipx Extensions..."
 source $PERSONAL_SHELL_SETUP_PATH/pipx/pipx-path-helper.sh
