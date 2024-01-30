@@ -85,11 +85,16 @@ async function downloadGemojiList() {
 
   console.log('\nShowing changes since ' + since.toString() + '\n');
   for (const { result, repo } of output) {
-    console.log(`\x1b[36m==== ${path.basename(path.dirname(repo))}/${path.basename(repo)} ====\x1b[0m`);
-
-    const text = regexes.reduce((prev, {pattern, replacement}) =>
+    const repoName = `${path.basename(path.dirname(repo))}/${path.basename(repo)}`;
+    console.log(' ');
+    let text = regexes.reduce((prev, {pattern, replacement}) =>
       prev.replace(pattern, replacement), result.stdout);
-    console.log(text
-      .replace(/\n\n/g, '\n'));
+    text = text
+      .replace(/\n\n/g, '\n')
+      .replace(/\n([^\d])/g, ' $1')
+      .split('\n')
+      .map(x => `${repoName}\t${x}`)
+      .join('\n')
+    console.log(text);
   }
 })();
