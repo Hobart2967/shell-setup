@@ -43,6 +43,12 @@ source $PERSONAL_SHELL_SETUP_PATH/aws-tools/aws-connect-to.sh
 printf "Python Tooling..."
 source $PERSONAL_SHELL_SETUP_PATH/python/pyenv.sh
 
+printf "Node Development Extensions..."
+source $PERSONAL_SHELL_SETUP_PATH/node/nvm.sh
+source $PERSONAL_SHELL_SETUP_PATH/node/yarn.sh
+source $PERSONAL_SHELL_SETUP_PATH/node/lerna.sh
+source $PERSONAL_SHELL_SETUP_PATH/sls/sls.sh
+
 printf "Git Extensions..."
 source $PERSONAL_SHELL_SETUP_PATH/git/_index.sh
 source $PERSONAL_SHELL_SETUP_PATH/git/giti.sh
@@ -54,12 +60,6 @@ source $PERSONAL_SHELL_SETUP_PATH/git/apply-patch.sh
 source $PERSONAL_SHELL_SETUP_PATH/git/gh.sh
 printf " "
 echo "$COLORS_RESET"
-
-printf "Node Development Extensions..."
-source $PERSONAL_SHELL_SETUP_PATH/node/nvm.sh
-source $PERSONAL_SHELL_SETUP_PATH/node/yarn.sh
-source $PERSONAL_SHELL_SETUP_PATH/node/lerna.sh
-source $PERSONAL_SHELL_SETUP_PATH/sls/sls.sh
 
 printf "Asdf Extensions..."
 source $PERSONAL_SHELL_SETUP_PATH/asdf/asdf-bootstrap.sh
