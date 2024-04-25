@@ -28,9 +28,13 @@ printf "\t Zsh..."
 source $PERSONAL_SHELL_SETUP_PATH/shells/zsh.sh
 printf " "
 
+printf "Asdf Extensions..."
+source $PERSONAL_SHELL_SETUP_PATH/asdf/asdf-bootstrap.sh
+
 printf "Tooling..."
 source $PERSONAL_SHELL_SETUP_PATH/utilities/_tooling.sh
 source $PERSONAL_SHELL_SETUP_PATH/adb/adb-forward.sh
+source $PERSONAL_SHELL_SETUP_PATH/brew/completion.sh
 printf " "
 
 printf "AWS Tooling..."
@@ -61,8 +65,7 @@ source $PERSONAL_SHELL_SETUP_PATH/git/gh.sh
 printf " "
 echo "$COLORS_RESET"
 
-printf "Asdf Extensions..."
-source $PERSONAL_SHELL_SETUP_PATH/asdf/asdf-bootstrap.sh
+
 
 printf "Tools Extensions..."
 source $PERSONAL_SHELL_SETUP_PATH/tools/wake-on-lan.sh
