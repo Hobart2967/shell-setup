@@ -62,7 +62,7 @@ async function downloadGemojiList() {
   const startDate = since.toISOString();
   const results = await Promise.all(repos
     .map(repo =>
-      exec(`git log --since="${startDate}" --all --abbrev-commit --pretty="format:%ci\t%B" ${additionalArgs}`, {
+      exec(`git log --since="${startDate}" --all --abbrev-commit --pretty="format:%ci\t%ae\t%B" ${additionalArgs}`, {
         cwd: repo
       })
       .then(result => ({ repo, result }))
