@@ -14,6 +14,7 @@ compinit
 autoload bashcompinit
 bashcompinit
 
+
 if [ -f "$HOME/.env" ]; then
   set -o allexport; source $HOME/.env; set +o allexport
 fi
@@ -54,10 +55,12 @@ source $PERSONAL_SHELL_SETUP_PATH/node/lerna.sh
 source $PERSONAL_SHELL_SETUP_PATH/sls/sls.sh
 
 printf "Git Extensions..."
+export FPATH=$PERSONAL_SHELL_SETUP_PATH/completions:$FPATH
 source $PERSONAL_SHELL_SETUP_PATH/git/_index.sh
 source $PERSONAL_SHELL_SETUP_PATH/git/giti.sh
 source $PERSONAL_SHELL_SETUP_PATH/git/git_branch.sh
 source $PERSONAL_SHELL_SETUP_PATH/git/git-root.sh
+source $PERSONAL_SHELL_SETUP_PATH/git/git-checkout-ticket.sh
 source $PERSONAL_SHELL_SETUP_PATH/git/push-branch.sh
 source $PERSONAL_SHELL_SETUP_PATH/git/create-patch.sh
 source $PERSONAL_SHELL_SETUP_PATH/git/apply-patch.sh
