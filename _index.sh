@@ -49,7 +49,7 @@ printf "Python Tooling..."
 source $PERSONAL_SHELL_SETUP_PATH/python/pyenv.sh
 
 printf "Node Development Extensions..."
-source $PERSONAL_SHELL_SETUP_PATH/node/nvm.sh
+#source $PERSONAL_SHELL_SETUP_PATH/node/nvm.sh
 source $PERSONAL_SHELL_SETUP_PATH/node/yarn.sh
 source $PERSONAL_SHELL_SETUP_PATH/node/lerna.sh
 source $PERSONAL_SHELL_SETUP_PATH/sls/sls.sh
@@ -120,7 +120,7 @@ echo "${COLORS_BLUE}Git>${COLORS_RESET} ${COLORS_YELLOW}git-memory${COLORS_RESET
 echo "${COLORS_BLUE}Git>${COLORS_RESET} ${COLORS_YELLOW}git-all${COLORS_RESET} <command>\t\t\t\tRun git command for all repositories."
 echo "${COLORS_BLUE}Git>${COLORS_RESET} ${COLORS_YELLOW}git-check${COLORS_RESET}\t\t\t\t\tCheck all known repositories for changes or commits that have not been pushed to origin yet."
 echo "____"
-echo "${COLORS_BLUE}Node>${COLORS_RESET} ${COLORS_YELLOW}nvm${COLORS_RESET}\t\t\t\t\tNode version manager."
+#echo "${COLORS_BLUE}Node>${COLORS_RESET} ${COLORS_YELLOW}nvm${COLORS_RESET}\t\t\t\t\tNode version manager."
 echo "${COLORS_BLUE}Node>${COLORS_RESET} ${COLORS_YELLOW}lerna-add${COLORS_RESET} <...args>\t\t\tAdd the requested packages to the lerna package residing in the current folder."
 echo "${COLORS_BLUE}Node>${COLORS_RESET} ${COLORS_YELLOW}lerna-remove${COLORS_RESET} <...args>\t\t\tRemove the requested packages from the lerna package residing in the current folder."
 echo "${COLORS_BLUE}Node>${COLORS_RESET} ${COLORS_YELLOW}lerna-exec${COLORS_RESET} <...args>\t\t\tExecute the command for the lerna package residing in the current folder."
