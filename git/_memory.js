@@ -44,7 +44,7 @@ async function downloadGemojiList() {
   const tiemSpanInDays = timeSpanParam
     ? parseInt(timeSpanParam)
     : 3;
-  const since = new Date(new Date(Date.now()).getTime() - tiemSpanInDays * 24 * 60 * 60 * 1000);
+  const since = new Date(Date.now() - tiemSpanInDays * 24 * 60 * 60 * 1000);
   since.setHours(0);
   since.setMinutes(0);
   since.setSeconds(0);
@@ -53,18 +53,20 @@ async function downloadGemojiList() {
 
   let additionalArgs = '';
   if (!process.argv.includes('--all')) {
-    const username = await
+    const username = process.env.GIT_AUTHOR_FILTER || await
       exec(`git config user.name`);
-    additionalArgs = `--author="${username.stdout.trim()}"`;
+
+    additionalArgs = `--perl-regexp --author='^.*${username}.*$'`;
   }
   const repos = JSON.parse(fs.readFileSync(configPath));
+  const startDate = since.toISOString();
   const results = await Promise.all(repos
     .map(repo =>
-      exec(`git log --since="${since.toISOString()}" --branches --abbrev-commit --pretty="format:%ci\t%B" ${additionalArgs}`, {
+      exec(`git log --since="${startDate}" --all --abbrev-commit --pretty="format:%ci\t%ae\t%B" ${additionalArgs}`, {
         cwd: repo
       })
       .then(result => ({ repo, result }))
-      .catch(() => ({ repo, result: { stdout: '' } }))
+      .catch((err) => ({ repo, result: { stdout: 'Error: Could not read repo: ' + err.toString() } }))
     ));
 
 
@@ -84,12 +86,22 @@ async function downloadGemojiList() {
     .reduce((prev, cur) => [...prev, ...cur], []);
 
   console.log('\nShowing changes since ' + since.toString() + '\n');
+  let final = '';
   for (const { result, repo } of output) {
-    console.log(`\x1b[36m==== ${path.basename(path.dirname(repo))}/${path.basename(repo)} ====\x1b[0m`);
-
-    const text = regexes.reduce((prev, {pattern, replacement}) =>
+    const repoName = `${path.basename(path.dirname(repo))}/${path.basename(repo)}`;
+    let text = regexes.reduce((prev, {pattern, replacement}) =>
       prev.replace(pattern, replacement), result.stdout);
-    console.log(text
-      .replace(/\n\n/g, '\n'));
+    final += text
+      .replace(/\n\n/g, '\n')
+      .replace(/\n([^\d])/g, ' $1')
+      .split('\n')
+      .map(x => x.replace(/([^\t]+)(.*)/, `$1\t${repoName}$2`))
+      .join('\n') + '\n';
   }
+
+  console.log(final
+    .split('\n')
+    .filter(x => !!x)
+    .sort()
+    .join('\n'))
 })();

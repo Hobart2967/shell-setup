@@ -8,6 +8,12 @@
 ##      . source $PERSONAL_SHELL_SETUP_PATH/_index.sh         ##
 ################################################################
 alias boot=echo ""
+autoload -Uz compinit
+compinit
+
+autoload bashcompinit
+bashcompinit
+
 
 if [ -f "$HOME/.env" ]; then
   set -o allexport; source $HOME/.env; set +o allexport
@@ -23,9 +29,13 @@ printf "\t Zsh..."
 source $PERSONAL_SHELL_SETUP_PATH/shells/zsh.sh
 printf " "
 
+printf "Asdf Extensions..."
+source $PERSONAL_SHELL_SETUP_PATH/asdf/asdf-bootstrap.sh
+
 printf "Tooling..."
 source $PERSONAL_SHELL_SETUP_PATH/utilities/_tooling.sh
 source $PERSONAL_SHELL_SETUP_PATH/adb/adb-forward.sh
+source $PERSONAL_SHELL_SETUP_PATH/brew/completion.sh
 printf " "
 
 printf "AWS Tooling..."
@@ -38,11 +48,19 @@ source $PERSONAL_SHELL_SETUP_PATH/aws-tools/aws-connect-to.sh
 printf "Python Tooling..."
 source $PERSONAL_SHELL_SETUP_PATH/python/pyenv.sh
 
+printf "Node Development Extensions..."
+source $PERSONAL_SHELL_SETUP_PATH/node/nvm.sh
+source $PERSONAL_SHELL_SETUP_PATH/node/yarn.sh
+source $PERSONAL_SHELL_SETUP_PATH/node/lerna.sh
+source $PERSONAL_SHELL_SETUP_PATH/sls/sls.sh
+
 printf "Git Extensions..."
+export FPATH=$PERSONAL_SHELL_SETUP_PATH/completions:$FPATH
 source $PERSONAL_SHELL_SETUP_PATH/git/_index.sh
 source $PERSONAL_SHELL_SETUP_PATH/git/giti.sh
 source $PERSONAL_SHELL_SETUP_PATH/git/git_branch.sh
 source $PERSONAL_SHELL_SETUP_PATH/git/git-root.sh
+source $PERSONAL_SHELL_SETUP_PATH/git/git-checkout-ticket.sh
 source $PERSONAL_SHELL_SETUP_PATH/git/push-branch.sh
 source $PERSONAL_SHELL_SETUP_PATH/git/create-patch.sh
 source $PERSONAL_SHELL_SETUP_PATH/git/apply-patch.sh
@@ -50,20 +68,17 @@ source $PERSONAL_SHELL_SETUP_PATH/git/gh.sh
 printf " "
 echo "$COLORS_RESET"
 
-printf "Node Development Extensions..."
-source $PERSONAL_SHELL_SETUP_PATH/node/nvm.sh
-source $PERSONAL_SHELL_SETUP_PATH/node/yarn.sh
-source $PERSONAL_SHELL_SETUP_PATH/node/lerna.sh
-source $PERSONAL_SHELL_SETUP_PATH/sls/sls.sh
 
-printf "Asdf Extensions..."
-source $PERSONAL_SHELL_SETUP_PATH/asdf/asdf-bootstrap.sh
 
 printf "Tools Extensions..."
 source $PERSONAL_SHELL_SETUP_PATH/tools/wake-on-lan.sh
+source $PERSONAL_SHELL_SETUP_PATH/tools/one-password.sh
 
 printf "pipx Extensions..."
 source $PERSONAL_SHELL_SETUP_PATH/pipx/pipx-path-helper.sh
+
+printf "Java Extensions..."
+source $PERSONAL_SHELL_SETUP_PATH/java/jasypt.sh
 
 if [[ "$IS_WSL" == "1" ]]; then
   source $PERSONAL_SHELL_SETUP_PATH/wsl/xdg-open-fix.sh
