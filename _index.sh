@@ -67,6 +67,8 @@ source $PERSONAL_SHELL_SETUP_PATH/pipx/pipx-path-helper.sh
 
 if [[ "$IS_WSL" == "1" ]]; then
   source $PERSONAL_SHELL_SETUP_PATH/wsl/xdg-open-fix.sh
+  source $PERSONAL_SHELL_SETUP_PATH/wsl/get-host-ip.sh
+  source $PERSONAL_SHELL_SETUP_PATH/android-sdk/adb-wsl.sh
 fi
 
 if [[ ! -z "$SHELL_SETUP_EXTENSION" ]]; then
