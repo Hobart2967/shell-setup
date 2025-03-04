@@ -81,6 +81,7 @@ printf "Java Extensions..."
 source $PERSONAL_SHELL_SETUP_PATH/java/jasypt.sh
 
 if [[ "$IS_WSL" == "1" ]]; then
+  source $PERSONAL_SHELL_SETUP_PATH/wsl/one-password.sh
   source $PERSONAL_SHELL_SETUP_PATH/wsl/xdg-open-fix.sh
   source $PERSONAL_SHELL_SETUP_PATH/wsl/get-host-ip.sh
   source $PERSONAL_SHELL_SETUP_PATH/android-sdk/adb-wsl.sh
