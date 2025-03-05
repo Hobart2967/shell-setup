@@ -7,6 +7,9 @@
 # Afterwards, it converts the newline separated to a one-liner colon-separated list.
 # Then, it appends this list to the WSLENV environment variable, which is used by WSL to forward environment variables to Windows.
 
+GLOBAL_OP_BIN_WIN32=$(powershell.exe "Get-Command op | select -ExpandProperty Source -first 1 | Get-Item | select -ExpandProperty Target")
+OP_PATH=$(wslpath -u "$GLOBAL_OP_BIN_WIN32" | tr -d '\r')
+
 op_env_vars=$(awk 'BEGIN{for(v in ENVIRON) print v"/w"}' | grep OP_ | sed -z '$ s/\n$//' | tr '\n' ':')
 export WSLENV="${WSLENV:-}:$(IFS=:; echo "${op_env_vars:-}")"
 exec $OP_PATH "$@"
