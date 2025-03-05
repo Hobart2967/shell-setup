@@ -16,5 +16,7 @@ fi
 
 binPath=$(command -v yarn)
 if [ ! -z "$binPath" ]; then
+  if [[ "$binPath" != /mnt/* ]]; then
     export PATH="$PATH:$(yarn global bin)"
+  fi
 fi
