@@ -17,12 +17,12 @@ if [[ "$CLEANED_OSTYPE" == "darwin" ]]; then
     . ~/.asdf/plugins/java/set-java-home.zsh
   fi
 else
-  mkdir -p "${ASDF_DATA_DIR:-$HOME/.asdf}/completions"
-  asdf completion zsh > "${ASDF_DATA_DIR:-$HOME/.asdf}/completions/_asdf"
-
   binPath=$(command -v asdf)
   if [ -z "$binPath" ]; then
     if [ -d "$HOME/.asdf" ]; then
+      mkdir -p "${ASDF_DATA_DIR:-$HOME/.asdf}/completions"
+      asdf completion zsh > "${ASDF_DATA_DIR:-$HOME/.asdf}/completions/_asdf"
+
       echo "Loading asdf from $ASDF_DATA_DIR/asdf.sh"
       . $ASDF_DATA_DIR/asdf.sh
     fi
