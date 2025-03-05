@@ -28,5 +28,5 @@ else
     fi
   fi
 
-  export PATH="$PATH:$HOME/.asdf/shims:$HOME/.asdf/bin"
+  export PATH="$HOME/.asdf/shims:$HOME/.asdf/bin:$PATH"
 fi
