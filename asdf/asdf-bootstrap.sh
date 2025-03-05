@@ -27,4 +27,6 @@ else
       . $ASDF_DATA_DIR/asdf.sh
     fi
   fi
+
+  export PATH="$PATH:$HOME/.asdf/shims:$HOME/.asdf/bin"
 fi
