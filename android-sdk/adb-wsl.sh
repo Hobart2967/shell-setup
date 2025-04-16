@@ -1,0 +1,1 @@
+alias adb-wsl='adb kill-server && export ADB_SERVER_SOCKET=tcp:$(get-wsl-host):5037 && echo "Now start adb server with \"adb -a server\""'
