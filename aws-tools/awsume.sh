@@ -14,3 +14,9 @@ fi
 
 alias awsume="aws-sso-util login --profile $AWS_DEFAULT_ACCOUNT  && . awsume --output-profile default"
 alias aws-login="aws-sso-util login --profile $AWS_DEFAULT_ACCOUNT"
+
+#SCRIPT=$(readlink -f "$0")
+#SCRIPTPATH=$(dirname "$SCRIPT")
+#
+#alias awsume=". $SCRIPTPATH/awsume-extended.sh"
+#
