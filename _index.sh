@@ -49,7 +49,7 @@ printf "Python Tooling..."
 source $PERSONAL_SHELL_SETUP_PATH/python/pyenv.sh
 
 printf "Node Development Extensions..."
-source $PERSONAL_SHELL_SETUP_PATH/node/nvm.sh
+#source $PERSONAL_SHELL_SETUP_PATH/node/nvm.sh
 source $PERSONAL_SHELL_SETUP_PATH/node/yarn.sh
 source $PERSONAL_SHELL_SETUP_PATH/node/lerna.sh
 source $PERSONAL_SHELL_SETUP_PATH/sls/sls.sh
@@ -134,3 +134,5 @@ echo ""
 source $PERSONAL_SHELL_SETUP_PATH/system.sh
 
 boot
+
+launchctl setenv PATH "/Users/marco/.asdf/shims/:$PATH"

@@ -14,3 +14,5 @@ if [[ "$ASDF_EXISTS" == "0" ]]; then
   . /opt/homebrew/opt/asdf/libexec/asdf.sh
   . ~/.asdf/plugins/java/set-java-home.zsh
 fi
+
+PATH=$HOME/.asdf/shims/:$PATH
