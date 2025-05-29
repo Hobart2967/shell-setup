@@ -79,9 +79,14 @@ source $PERSONAL_SHELL_SETUP_PATH/pipx/pipx-path-helper.sh
 
 printf "Java Extensions..."
 source $PERSONAL_SHELL_SETUP_PATH/java/jasypt.sh
+printf "Godot Extensions..."
+source $PERSONAL_SHELL_SETUP_PATH/godot/godot.sh
 
 if [[ "$IS_WSL" == "1" ]]; then
+  source $PERSONAL_SHELL_SETUP_PATH/wsl/one-password.sh
   source $PERSONAL_SHELL_SETUP_PATH/wsl/xdg-open-fix.sh
+  source $PERSONAL_SHELL_SETUP_PATH/wsl/get-host-ip.sh
+  source $PERSONAL_SHELL_SETUP_PATH/android-sdk/adb-wsl.sh
 fi
 
 if [[ ! -z "$SHELL_SETUP_EXTENSION" ]]; then
@@ -93,10 +98,15 @@ CLEANED_OSTYPE="${OSTYPE:0:6}"
 if [[ "$CLEANED_OSTYPE" == "darwin" ]]; then
   printf " "
   printf "MacOS Extensions..."
+  eval $(/opt/homebrew/bin/brew shellenv)
   source $PERSONAL_SHELL_SETUP_PATH/macos/_init.sh
   source $PERSONAL_SHELL_SETUP_PATH/macos/flushdns.sh
   source $PERSONAL_SHELL_SETUP_PATH/macos/show-frequency.sh
   source $PERSONAL_SHELL_SETUP_PATH/macos/show-temperature.sh
+
+  if [ -f "$HOME/.iterm2_shell_integration.zsh" ]; then
+    source $HOME/.iterm2_shell_integration.zsh
+  fi
 
   if [ -x /usr/libexec/path_helper ]; then
     eval `/usr/libexec/path_helper -s`
@@ -118,7 +128,7 @@ echo "${COLORS_BLUE}Git>${COLORS_RESET} ${COLORS_YELLOW}git-memory${COLORS_RESET
 echo "${COLORS_BLUE}Git>${COLORS_RESET} ${COLORS_YELLOW}git-all${COLORS_RESET} <command>\t\t\t\tRun git command for all repositories."
 echo "${COLORS_BLUE}Git>${COLORS_RESET} ${COLORS_YELLOW}git-check${COLORS_RESET}\t\t\t\t\tCheck all known repositories for changes or commits that have not been pushed to origin yet."
 echo "____"
-echo "${COLORS_BLUE}Node>${COLORS_RESET} ${COLORS_YELLOW}nvm${COLORS_RESET}\t\t\t\t\tNode version manager."
+#echo "${COLORS_BLUE}Node>${COLORS_RESET} ${COLORS_YELLOW}nvm${COLORS_RESET}\t\t\t\t\tNode version manager."
 echo "${COLORS_BLUE}Node>${COLORS_RESET} ${COLORS_YELLOW}lerna-add${COLORS_RESET} <...args>\t\t\tAdd the requested packages to the lerna package residing in the current folder."
 echo "${COLORS_BLUE}Node>${COLORS_RESET} ${COLORS_YELLOW}lerna-remove${COLORS_RESET} <...args>\t\t\tRemove the requested packages from the lerna package residing in the current folder."
 echo "${COLORS_BLUE}Node>${COLORS_RESET} ${COLORS_YELLOW}lerna-exec${COLORS_RESET} <...args>\t\t\tExecute the command for the lerna package residing in the current folder."

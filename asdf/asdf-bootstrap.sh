@@ -7,12 +7,26 @@ if [ ! -d "$HOME/.asdf" ]; then
   fi
 fi
 
-ASDF_PREFIX=$(brew --prefix asdf 2> /dev/null)
-ASDF_EXISTS=$?
-if [[ "$ASDF_EXISTS" == "0" ]]; then
-  export ASDF_DATA_DIR="$HOME/.asdf"
-  . /opt/homebrew/opt/asdf/libexec/asdf.sh
-  . ~/.asdf/plugins/java/set-java-home.zsh
-fi
+export ASDF_DATA_DIR="$HOME/.asdf"
+CLEANED_OSTYPE="${OSTYPE:0:6}"
+if [[ "$CLEANED_OSTYPE" == "darwin" ]]; then
+  ASDF_PREFIX=$(brew --prefix asdf 2> /dev/null)
+  ASDF_EXISTS=$?
+  if [[ "$ASDF_EXISTS" == "0" ]]; then
+    . /opt/homebrew/opt/asdf/libexec/asdf.sh
+    . ~/.asdf/plugins/java/set-java-home.zsh
+  fi
+else
+  binPath=$(command -v asdf)
+  if [ -z "$binPath" ]; then
+    if [ -d "$HOME/.asdf" ]; then
+      mkdir -p "${ASDF_DATA_DIR:-$HOME/.asdf}/completions"
+      asdf completion zsh > "${ASDF_DATA_DIR:-$HOME/.asdf}/completions/_asdf"
 
-PATH=$HOME/.asdf/shims/:$PATH
+      echo "Loading asdf from $ASDF_DATA_DIR/asdf.sh"
+      . $ASDF_DATA_DIR/asdf.sh
+    fi
+  fi
+
+  export PATH="$HOME/.asdf/shims:$HOME/.asdf/bin:$PATH"
+fi
