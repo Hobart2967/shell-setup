@@ -21,10 +21,10 @@ if (!fs.existsSync(configPath)) {
   repos = JSON.parse(fs.readFileSync(configPath));
 }
 
-if (repos.includes(targetPath)) {
+if (repos.includes(targetPath.replace(/\/$/g, ''))) {
   process.exit(1);
 }
 
 console.log('Adding repository to machine registry.');
-repos.push(targetPath);
+repos.push(targetPath.replace(/\/$/g, ''));
 fs.writeFileSync(configPath, JSON.stringify(repos, null, 2))

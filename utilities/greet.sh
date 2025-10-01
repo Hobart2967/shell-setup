@@ -1,26 +1,7 @@
-if [ "$MACHINE_TYPE" = "work" ]; then
+if [ "$MACHINE_TYPE" != "home" ]; then
   WORK_RAINBOW=("${RAINBOW[@]:0:7}")
 
-  printf '%s  __________        %s__  %s           %s    %s__    %s    %s \n' $WORK_RAINBOW $RAINBOW_RESET
-  printf '%s  \______   \ %s____ %s|  | %s  ____  %s ____ |%s__|%s ____  %s \n' $WORK_RAINBOW $RAINBOW_RESET
-  printf '%s   |    |  _/%s/ __ \%s|  |  %s/  _ \ %s/    \%s|  |%s/  _ \  %s \n' $WORK_RAINBOW $RAINBOW_RESET
-  printf '%s   |    |   \%s  ___/%s|  |_%s(  <_> )%s   |  \%s  %s(  <_> ) %s \n' $WORK_RAINBOW $RAINBOW_RESET
-  printf '%s   |______  /%s\___  >%s____/%s\____/%s|___|  /%s__|%s\____/  %s \n' $WORK_RAINBOW $RAINBOW_RESET
-  printf '%s          \/%s     \/ %s     %s     %s      \/%s   %s        %s \n' $WORK_RAINBOW $RAINBOW_RESET
-  printf '\n'
-  #printf '%s _________ %s       %s        %s           %s ___________%s        %s        %s         %s \n' $WORK_RAINBOW $RESET
-  #printf '%s \_   ___ \%s    ____ %s _______%s    ____ %s \__    ___/%s  ____ %s _____  %s   _____ %s \n' $WORK_RAINBOW $RESET
-  #printf '%s /    \  \/%s   /  _ \%s \_  __ \%s _/ __ \%s   |    |  %s _/ __ \%s \__  \ %s  /     \%s \n' $WORK_RAINBOW $RESET
-  #printf '%s \     \____%s (  <_> )%s |  | \/%s \  ___/%s   |    |  %s \  ___/%s  / __ \_%s |  Y Y \%s \n' $WORK_RAINBOW $RESET
-  #printf '%s  \______  /%s  \____/%s  |__|  %s   \___  >%s  |____|  %s  \__  >%s (____  /%s |__|_| /%s \n' $WORK_RAINBOW $RESET
-  #printf '%s         \/%s       %s        %s         \/%s           %s     \/%s       \/%s       \/%s \n' $WORK_RAINBOW $RESET
-  #printf '\n'
-  #printf '%s__________%s.__  %s     %s   __  %s  _____ %s     %s       %s        %s ___________ %s             %s   %s   %s\n' $RAINBOW $RESET
-  #printf '%s\\______   \\%s  | %s_____ %s_/  |__%s/ ____\\%s_____%s______ %s _____  %s \\__    ___/%s___ %s_____   %s _____  %s\n' $RAINBOW $RESET
-  #printf '%s |     ___/%s  | %s\\__  \\%s\\   __%s\\   __\\%s/  _ \\%s_  __ \\%s/     \\ %s   |    |%s_/ __ \\%s\\__  \\  %s/     \\ %s\n' $RAINBOW $RESET
-  #printf '%s |    |   %s|  |__%s/ __ \\%s|  |  %s|  | %s(  <_> )%s  | \\%s/  Y Y  \\ %s  |    |%s\\  ___/ %s/ __ \\%s|  Y Y  \\%s\n' $RAINBOW $RESET
-  #printf '%s |____|   %s|____%s(____  /%s__|  %s|__|  %s\\____/%s|__|  %s|__|_|  /  %s |____|%s \\___  >%s____  /%s__|_|  /%s\n' $RAINBOW $RESET
-  #printf '%s          %s     %s     \\/ %s       %s            %s      %s    \\/      %s       %s  \\/   %s %s \\/   %s   \\/ %s \n' $RAINBOW $RESET
+  $PERSONAL_SHELL_SETUP_PATH/utilities/render-banner.sh $MACHINE_TYPE
 else
   HOME_RAINBOW=("${RAINBOW[@]:0:11}")
   printf '\n'
@@ -43,9 +24,3 @@ echo -e "\t$YELLOW Welcome to duty, commander! It is $TIME on $DATE. $RESET\n"
 echo -e "\t$YELLOW Please wait a jiffy, until I set things up for you...$RESET"
 
 printf '\n'
-
-#printf '%s __      __   _                    _            _      _        _  %s \n' $YELLOW $RESET
-#printf '%s \ \    / /__| |__ ___ _ __  ___  | |_ ___   __| |_  _| |_ _  _| | %s \n'  $YELLOW $RESET
-#printf '%s  \ \/\/ / -_) / _/ _ \ `  \/ -_) |  _/ _ \ / _` | || |  _| || |_| %s \n'  $YELLOW $RESET
-#printf '%s   \_/\_/\___|_\__\___/_|_|_\___|  \__\___/ \__,_|\_,_|\__|\_, (_) %s \n'  $YELLOW $RESET
-#printf '%s                                                           |__/    %s \n'  $YELLOW $RESET
