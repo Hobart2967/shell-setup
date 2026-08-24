@@ -49,7 +49,7 @@ printf "Python Tooling..."
 source $PERSONAL_SHELL_SETUP_PATH/python/pyenv.sh
 
 printf "Node Development Extensions..."
-#source $PERSONAL_SHELL_SETUP_PATH/node/nvm.sh
+source $PERSONAL_SHELL_SETUP_PATH/node/npm.sh
 source $PERSONAL_SHELL_SETUP_PATH/node/yarn.sh
 source $PERSONAL_SHELL_SETUP_PATH/node/lerna.sh
 source $PERSONAL_SHELL_SETUP_PATH/sls/sls.sh
@@ -145,4 +145,13 @@ source $PERSONAL_SHELL_SETUP_PATH/system.sh
 
 boot
 
-launchctl setenv PATH "/Users/marco/.asdf/shims/:$PATH"
+export ANDROID_HOME=/usr/share/android-sdk
+export PATH=$PATH:$ANDROID_HOME/cmdline-tools/latest/bin
+export PATH=$PATH:$ANDROID_HOME/platform-tools
+
+# Use Windows ADB (start with adb -a server first)
+export ADB_SERVER_SOCKET=tcp:$(ip route show default | awk '{print $3}'):5037
+
+if [[ "$CLEANED_OSTYPE" == "darwin" ]]; then
+  launchctl setenv PATH "/Users/marco/.asdf/shims/:$PATH"
+fi
