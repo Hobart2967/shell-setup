@@ -1,0 +1,33 @@
+# https://github.com/abiosoft/colima/issues/83#issuecomment-1811986596
+
+[ -d "${HOME}/.colima/_config" ] || mkdir -vp "${HOME}/.colima/_config"
+https://medium.com/dandelion-tutorials/how-to-fix-chown-permission-denied-issue-when-using-colima-on-mac-os-x-d925e420c875
+
+cat << EOF > ${HOME}/.colima/_config/override.yaml
+mountType: 9p
+mounts:
+  - location: ${HOME}
+    writable: true
+    9p:
+      securityModel: mapped-xattr
+      cache: mmap
+  - location: "~"
+    writable: true
+    9p:
+      securityModel: mapped-xattr
+      cache: mmap
+  - location: /tmp/colima
+    writable: true
+    9p:
+      securityModel: mapped-xattr
+      cache: mmap
+EOF
+
+
+# 2. Edit the template
+# ⚠️ Make sure you have: mountType: 9p
+colima template
+
+# 3. Then start colima editing the configuration file before start:
+# ⚠️ Make sure you have: mountType: 9p
+colima start --edit

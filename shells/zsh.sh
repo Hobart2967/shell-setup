@@ -8,7 +8,7 @@ if [[ ! -z "$ZSH" ]]; then
     echo "$COLORS_YELLOW\t ==> Downloading zsh theme$COLORS_RESET"
     rm -rf ~/source/github.com/Hobart2967/agnoster-ex
     mkdir -p ~/source/github.com/Hobart2967/agnoster-ex
-    git clone git@github.com:Hobart2967/agnoster-ex  ~/source/github.com/Hobart2967/agnoster-ex
+    git clone https://github.com/Hobart2967/agnoster-ex  ~/source/github.com/Hobart2967/agnoster-ex
     ln -s ~/source/github.com/Hobart2967/agnoster-ex/agnoster-ex.zsh-theme "$ZSH/custom/themes/agnoster-ex.zsh-theme"
   fi
 

@@ -53,7 +53,6 @@ printf "Python Tooling..."
 source $PERSONAL_SHELL_SETUP_PATH/python/pyenv.sh
 
 printf "Node Development Extensions..."
-#source $PERSONAL_SHELL_SETUP_PATH/node/nvm.sh
 source $PERSONAL_SHELL_SETUP_PATH/node/npm.sh
 source $PERSONAL_SHELL_SETUP_PATH/node/yarn.sh
 source $PERSONAL_SHELL_SETUP_PATH/node/lerna.sh
@@ -84,6 +83,8 @@ source $PERSONAL_SHELL_SETUP_PATH/pipx/pipx-path-helper.sh
 
 printf "Java Extensions..."
 source $PERSONAL_SHELL_SETUP_PATH/java/jasypt.sh
+printf "Godot Extensions..."
+source $PERSONAL_SHELL_SETUP_PATH/godot/godot.sh
 
 if [[ "$IS_WSL" == "1" ]]; then
   source $PERSONAL_SHELL_SETUP_PATH/wsl/one-password.sh
@@ -101,10 +102,15 @@ CLEANED_OSTYPE="${OSTYPE:0:6}"
 if [[ "$CLEANED_OSTYPE" == "darwin" ]]; then
   printf " "
   printf "MacOS Extensions..."
+  eval $(/opt/homebrew/bin/brew shellenv)
   source $PERSONAL_SHELL_SETUP_PATH/macos/_init.sh
   source $PERSONAL_SHELL_SETUP_PATH/macos/flushdns.sh
   source $PERSONAL_SHELL_SETUP_PATH/macos/show-frequency.sh
   source $PERSONAL_SHELL_SETUP_PATH/macos/show-temperature.sh
+
+  if [ -f "$HOME/.iterm2_shell_integration.zsh" ]; then
+    source $HOME/.iterm2_shell_integration.zsh
+  fi
 
   if [ -x /usr/libexec/path_helper ]; then
     eval `/usr/libexec/path_helper -s`
@@ -142,3 +148,14 @@ echo ""
 source $PERSONAL_SHELL_SETUP_PATH/system.sh
 
 boot
+
+export ANDROID_HOME=/usr/share/android-sdk
+export PATH=$PATH:$ANDROID_HOME/cmdline-tools/latest/bin
+export PATH=$PATH:$ANDROID_HOME/platform-tools
+
+# Use Windows ADB (start with adb -a server first)
+export ADB_SERVER_SOCKET=tcp:$(ip route show default | awk '{print $3}'):5037
+
+if [[ "$CLEANED_OSTYPE" == "darwin" ]]; then
+  launchctl setenv PATH "/Users/marco/.asdf/shims/:$PATH"
+fi
