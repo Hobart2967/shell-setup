@@ -29,6 +29,10 @@ printf "\t Zsh..."
 source $PERSONAL_SHELL_SETUP_PATH/shells/zsh.sh
 printf " "
 
+printf "\t VS Code..."
+source $PERSONAL_SHELL_SETUP_PATH/vscode/shell-integration.sh
+printf " "
+
 printf "Asdf Extensions..."
 source $PERSONAL_SHELL_SETUP_PATH/asdf/asdf-bootstrap.sh
 
