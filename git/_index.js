@@ -8,7 +8,11 @@ if (!target) {
   console.log(target);
 }
 
-const targetPath = path.join(process.cwd(), target);
+let targetPath = path.join(process.cwd(), target);
+while(targetPath.endsWith('/')) {
+  targetPath = targetPath.slice(0, -1);
+}
+
 if (!fs.existsSync(path.join(targetPath, '.git'))) {
   process.exit(1);
 }
