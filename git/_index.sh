@@ -1,5 +1,6 @@
 #!/bin/sh
 alias cd_old=cd
+alias git_old=git
 nodePath=$(command -v node)
 
 function checkrepo() {
@@ -7,6 +8,17 @@ function checkrepo() {
     node $PERSONAL_SHELL_SETUP_PATH/git/_index.js $1
   fi
   cd_old $*
+}
+
+function checkrepo_git() {
+  REPO_ROOT=$(git rev-parse --show-toplevel)
+  if [ ! -z "$REPO_ROOT" ]; then
+    if [ ! -z "$nodePath" ]; then
+      node $PERSONAL_SHELL_SETUP_PATH/git/_index.js $REPO_ROOT
+    fi    
+  fi
+
+  git_old $*
 }
 
 function git-memory() {
@@ -22,6 +34,8 @@ function git-all() {
 }
 
 alias cd=checkrepo
+alias git=checkrepo_git
+
 checkrepo $(pwd)
 
 function git-check() {
