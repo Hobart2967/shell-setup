@@ -25,8 +25,15 @@ export IS_WSL=$( [ ! -z "$MICROSOFT_UNAME" ] && echo "1" || echo "0" )
 source $PERSONAL_SHELL_SETUP_PATH/utilities/_colors.sh
 source $PERSONAL_SHELL_SETUP_PATH/utilities/greet.sh
 
+printf "\t MEsa & Vulkan..."
+source $PERSONAL_SHELL_SETUP_PATH/nvidia/index.sh
+
 printf "\t Zsh..."
 source $PERSONAL_SHELL_SETUP_PATH/shells/zsh.sh
+printf " "
+
+printf "\t Dotnet..."
+source $PERSONAL_SHELL_SETUP_PATH/dotnet/index.sh
 printf " "
 
 printf "\t VS Code..."
@@ -159,3 +166,5 @@ export ADB_SERVER_SOCKET=tcp:$(ip route show default | awk '{print $3}'):5037
 if [[ "$CLEANED_OSTYPE" == "darwin" ]]; then
   launchctl setenv PATH "/Users/marco/.asdf/shims/:$PATH"
 fi
+
+export PATH="$(asdf where nodejs):$PATH"
