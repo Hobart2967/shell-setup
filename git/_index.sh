@@ -11,7 +11,7 @@ function checkrepo() {
 }
 
 function checkrepo_git() {
-  REPO_ROOT=$(git rev-parse --show-toplevel)
+  REPO_ROOT=$(git_old rev-parse --show-toplevel)
   if [ ! -z "$REPO_ROOT" ]; then
     if [ ! -z "$nodePath" ]; then
       node $PERSONAL_SHELL_SETUP_PATH/git/_index.js $REPO_ROOT
@@ -34,7 +34,6 @@ function git-all() {
 }
 
 alias cd=checkrepo
-alias git=checkrepo_git
 
 checkrepo $(pwd)
 
